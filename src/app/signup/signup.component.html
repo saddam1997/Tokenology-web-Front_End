@@ -1,27 +1,5 @@
-
-
-
-
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Tokenology : Signup</title>
-<link href="../images/tokenology-favicon.png" rel="icon">
-<!-- Custom Theme files -->
-<!-- for-mobile-apps -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="keywords" content="" />
-<!-- //for-mobile-apps -->
-<!-- font-awesome icons -->
-<!-- //font-awesome icons -->
-<!--Google Fonts-->
-<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-</head>
-<body>
 <div class="wthree-dot">
-    <a href="../index.html"><h1><img src="app/images/logo.png"></h1></a>
+    <a href="../index.html"><h1><img src="./assets/img/logo.png"></h1></a>
     <div class="profile">
         <div class="wrap">
             
@@ -30,14 +8,12 @@
                     <h4>New Customer?</h4>
                     <p>Hey! there's more to explore inside.</p>
 
-
                  <form [formGroup]="registerForm">
 
                     <div class="form-group" >
                             <!-- <label for="username">Email</label> -->
                             <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" [(ngModel)]="signUpDetails.firstName"  required />
-
-                            <div *ngIf="!registerForm.controls['firstName'].valid&&registerForm.controls['firstName'].dirty" class="help-block">First Name is required</div>
+                            <div *ngIf="!registerForm.controls['firstName'].valid&&registerForm.controls['firstName'].dirty" class="help-block"><span style="color:red;">First Name is required</span></div>
                         </div>
 
 
@@ -45,47 +21,29 @@
                             <!-- <label for="username">Email</label> -->
                             <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" [(ngModel)]="signUpDetails.lastName"  required />
 
-                            <div *ngIf="!registerForm.controls['lastName'].valid&&registerForm.controls['lastName'].dirty" class="help-block">Last Name is required</div>
+                            <div *ngIf="!registerForm.controls['lastName'].valid&&registerForm.controls['lastName'].dirty" class="help-block"><span style="color:red;">Last Name is required</span></div>
                         </div>
                         
                         <div class="form-group" >
                             <!-- <label for="username">Email</label> -->
                             <input type="email" class="form-control" placeholder="Email" formControlName="email" [(ngModel)]="signUpDetails.email"  required />
 
-                            <div *ngIf="!registerForm.controls['email'].valid&&registerForm.controls['email'].dirty" class="help-block">Email is required</div>
+                            <div *ngIf="!registerForm.controls['email'].valid&&registerForm.controls['email'].dirty" class="help-block"><span style="color:red;">Email is required</span></div>
                         </div>
                         <div class="form-group" >                           
                             <input type="password" class="form-control" placeholder="Password" formControlName="password" [(ngModel)]="signUpDetails.password"  required />
 
                             
-                            <div *ngIf="!registerForm.controls['password'].valid&&registerForm.controls['password'].dirty" class="help-block">Password is required</div>
+                            <div *ngIf="!registerForm.controls['password'].valid&&registerForm.controls['password'].dirty" class="help-block"><span style="color:red;">Password is required</span></div>
                         </div>
 
                        
                         <input type="submit" value="Sign Up" (click)="register(registerForm.value)" [disabled]="!registerForm.valid"s>
-                                                <div class="row" style="margin-top: 30px;">
-                                                   <p style="line-height: 0px;color: #fff;">OR</p> <br>
-                                                  <p style="margin : 0px;line-height:0px;">
-                                                    <a [routerLink]="['/signup']" style="line-height: 0px;color: #fff;">SignUp?</a></p> 
-                                                </div>
                                                 
                         <br><br>
                         <a [routerLink]="['/login']" align="right" style="line-height: 0px; color: #fff">Already have an account?</a>
                     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
+                   
                 </div>
             </div>
             <div class="wthree_footer_copy">
@@ -94,5 +52,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+

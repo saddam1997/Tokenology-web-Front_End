@@ -17,9 +17,9 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ToasterModule } from 'angular2-toaster';
-import { ToasterContainerComponent, ToasterService, ToasterConfig} from 'angular2-toaster';
-import {GrowlModule} from 'primeng/growl';
+import { GrowlModule} from 'primeng/primeng';
+import { ButtonModule } from 'primeng/primeng';
+import { MessageService} from 'primeng/components/common/messageservice';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,9 +39,9 @@ import {GrowlModule} from 'primeng/growl';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpModule,
-    ToasterModule,
     HttpClientModule,
-    GrowlModule
+    GrowlModule,
+    ButtonModule
   ],
   providers: [
     AuthGuard,
@@ -49,7 +49,8 @@ import {GrowlModule} from 'primeng/growl';
         AuthenticationService,
         UserService,
         JwtInterceptorProvider,
-        ErrorInterceptorProvider
+        ErrorInterceptorProvider,
+        MessageService
   ],
   bootstrap: [AppComponent]
 })

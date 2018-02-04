@@ -1,8 +1,10 @@
 import { Component, OnInit ,NgModule} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService, AuthenticationService ,UserService} from '../_services/index';
-import {FormsModule, FormControl, FormBuilder, Validators, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import { AlertService, AuthenticationService ,UserService } from '../_services/index';
+import { FormsModule, FormControl, FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Http, Headers, RequestOptions, Response  } from '@angular/http';
+import { Message } from 'primeng/components/common/api';
+import { MessageService } from 'primeng/components/common/messageservice';
 @Component({
     selector : 'signup',
     templateUrl: 'signup.component.html'
@@ -21,7 +23,8 @@ export class SignupComponent implements OnInit {
         private fb: FormBuilder,
         private userService: UserService,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService) 
+        private alertService: AlertService,
+        private messageService: MessageService) 
     { 
         this.http = http 
          
@@ -57,13 +60,16 @@ export class SignupComponent implements OnInit {
     }
 
         register() {
+        this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
+
         this.loading = true;
         this.userService.create(this.signUpDetails).subscribe(
                 data => {
-                    this.alertService.success('Registration successful', true);
+                    this.messageService.add({severity:'success', summary:'Registration successful'});
                     this.router.navigate(['/login']);
                 },
                 error => {
+                    this.messageService.add({severity:'error', summary:'server error'});
                     this.alertService.error(error.msg);
                     this.loading = false;
                 });

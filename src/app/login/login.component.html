@@ -1,19 +1,5 @@
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Tokenology : login</title>
-<link href="./assets/tokenology-favicon.png" rel="icon">
-<!-- Custom Theme files -->
-<!-- for-mobile-apps -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="keywords" content="" />
-<!--Google Fonts-->
-<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-</head>
-<body>
+
 <div class="wthree-dot">
 	<a href="../index.html"><h1><img src="./assets/img/logo.png"></h1></a>
 	<div class="profile">
@@ -26,28 +12,30 @@
                         
                         <div class="form-group" >
                             <!-- <label for="username">Email</label> -->
-                            <input type="email" class="form-control" placeholder="Email" formControlName="username" [(ngModel)]="username"  required />
-
-                            <div *ngIf="!loginform.controls['username'].valid&&loginform.controls['username'].dirty" class="help-block">Email is required</div>
+                            <input type="email" class="form-control" placeholder="Email" formControlName="email" [(ngModel)]="loginDetail.email"  required />
+                              
+                            <div *ngIf="!loginform.controls['email'].valid&&loginform.controls['email'].dirty" class="help-block"> <span style="color:red;">Email is required</span></div>
                         </div>
                         <div class="form-group" >                           
-                            <input type="password" class="form-control" placeholder="Password" formControlName="password" [(ngModel)]="password"  required />
+                            <input type="password" class="form-control" placeholder="Password" formControlName="password" [(ngModel)]="loginDetail.password"  required />
 
                             
-                            <div *ngIf="!loginform.controls['password'].valid&&loginform.controls['password'].dirty" class="help-block">Password is required</div>
+                            <div *ngIf="!loginform.controls['password'].valid&&loginform.controls['password'].dirty" class="help-block"><span style="color:red;">Password is required</span></div>
                         </div>
 
                         <a href="forgot.html" align="right" style="line-height: 0px;color: #fff;float: right;">Forgot Password?</a>
 
-                        <input type="submit" value="Login" (click)="login(loginform.value)" [disabled]="!loginform.valid"s>
+                        <input type="submit" value="Login" (click)="login(loginform.value)" [disabled]="!loginform.valid">
                                                 <div class="row" style="margin-top: 30px;">
                                                    <p style="line-height: 0px;color: #fff;">OR</p> <br>
                                                   <p style="margin : 0px;line-height:0px;">
-                                                    <a [routerLink]="['/signup']" style="line-height: 0px;color: #fff;">SignUp?</a></p> 
+                                                    <a [routerLink]="['/signupHome']" style="line-height: 0px;color: #fff;">SignUp?</a></p> 
                                                 </div>
                                                 
                         <br><br>
+                           
                     </form>
+                 
 				</div>
 			</div>
 			
@@ -57,6 +45,6 @@
 		</div>
 	</div>
 </div>
-<p-growl [value]="msgs" life="3000"></p-growl>
-</body>
-</html>
+
+
+

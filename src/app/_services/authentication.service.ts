@@ -9,9 +9,9 @@ import { appConfig } from '../app.config';
 export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
-    login(username: string, password: string) {
+    login(loginDetail:LoginDetail) {
        
-        return this.http.post<any>(appConfig.apiUrl + '/api/login', { email: username, password: password })
+        return this.http.post<any>(appConfig.apiUrl + '/api/login', loginDetail)
             .map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
